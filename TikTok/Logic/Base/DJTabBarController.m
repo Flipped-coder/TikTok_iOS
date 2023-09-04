@@ -13,6 +13,8 @@
 #import "DJECommerceViewController.h"
 #import "DJMineViewController.h"
 #import "DJLoginViewController.h"
+#import "DJTabBar.h"
+#import "DJScreen.h"
 #import <TikTok_iOS_SDK/TikTok_iOS_SDK.h>
 
 
@@ -22,127 +24,148 @@
 
 @property (nonatomic, strong) UIButton *postButton;
 
+@property (nonatomic, weak) DJTabBar *customTabBar;
+
+
 @end
 
 @implementation DJTabBarController
 
-+ (void)initialize
-{
-    // 通过appearance统一设置所有UITabBarItem的文字属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-    attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-
-    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSFontAttributeName] = attrs[NSFontAttributeName];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-
-    UITabBarItem *item = [UITabBarItem appearance];
-    [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
-
-}
-
-- (instancetype)init {
-    self = [super init];
+// 调用init方法的时候, 系统内部会默认调用initWithNibName
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self.tabBar setBarTintColor:[UIColor whiteColor]];
-        [self.tabBarController.tabBar setNeedsLayout];
-        [self.tabBarController.tabBar layoutIfNeeded];
-    };
+        // 初始化设置所有UITabBarItems属性
+        NSArray *classNameArray = @[@"DJHomePageViewController",
+                                    @"DJMessageViewController",
+                                    @"DJPublishViewController",
+                                    @"DJECommerceViewController",
+                                    @"DJMineViewController"];
+        
+        NSArray *titleArray = @[@"首页", @"消息", @"", @"商城", @"我的"];
+        
+        NSArray *imageNameArray = @[@"home_normal",
+                                    @"message_normal",
+                                    @"post_normal",
+                                    @"fishpond_normal",
+                                    @"account_normal",];
+        
+        NSArray *hightImageNameArray = @[@"home_highlight",
+                                         @"message_highlight",
+                                         @"post_highlight",
+                                         @"fishpond_highlight",
+                                         @"account_highlight"];
+        
+        for(int i = 0; i < TABBARITE_NUMBER; i++) {
+            UIViewController *viewController = [[NSClassFromString(classNameArray[i]) alloc] init];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [self addOneChildVc:navController
+                          title:titleArray[i]
+                      imageName:imageNameArray[i]
+              selectedImageName:hightImageNameArray[i]];
+        }
+    }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tabBar setBarTintColor:[UIColor whiteColor]];
-    [self.tabBarController.tabBar setNeedsLayout];
-    [self.tabBarController.tabBar layoutIfNeeded];
-    //[self.tabBar setBackgroundImage:[UIImage imageNamed:@"bg2"]];
+
+/**
+ *  添加一个子控制器
+ *
+ *  @param childVc           需要添加的子控制器
+ *  @param title             需要调节自控制器的标题
+ *  @param imageName         需要调节自控制器的默认状态的图片
+ *  @param selectedImageName 需要调节自控制器的选中状态的图片
+ */
+- (void)addOneChildVc:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
+{
+    // 1.设置子控制器的属性
+    childVc.view.backgroundColor = [UIColor whiteColor];
+    childVc.title = title;
+
+    UIImage *norImage = [UIImage imageNamed:imageName];
+    UIImage *selectedImage = [ UIImage imageNamed:selectedImageName];
+    
+    childVc.tabBarItem.image = norImage;
+    
+    childVc.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    // 2.将自控制器添加到tabbar控制器中
+    [self addChildViewController:childVc];
+    
+    // 3.调用自定义tabBar的添加按钮方法, 创建一个与当前控制器对应的按钮
+    [self.customTabBar addTabBarButton: childVc.tabBarItem];
 }
 
-- (void)viewDidLoad {
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    
-    
-    // 初始化设置所有UITabBarItems属性
-    NSArray *classNameArray = @[@"DJHomePageViewController",
-                                @"DJMessageViewController",
-                                @"DJPublishViewController",
-                                @"DJECommerceViewController",
-                                @"DJMineViewController"];
-    NSArray *titleArray = @[@"首页", @"消息", @"", @"商城", @"我的"];
-    NSArray *imageNameArray = @[@"home_normal",
-                                @"message_normal",
-                                @"post_normal",
-                                @"fishpond_normal",
-                                @"account_normal",];
-    NSArray *hightImageNameArray = @[@"home_highlight",
-                                     @"message_highlight",
-                                     @"post_highlight",
-                                     @"fishpond_highlight",
-                                     @"account_highlight"];
-    
-    // 加载控制器
-    NSMutableArray *navigationControllers = @[].mutableCopy;
-    for (int i = 0; i < TABBARITE_NUMBER; i++) {
-        UIViewController *viewController = [[NSClassFromString(classNameArray[i]) alloc] init];
-        viewController.tabBarItem.title = titleArray[i];
-        viewController.tabBarItem.image = [UIImage imageNamed:imageNameArray[i]];
-        viewController.tabBarItem.selectedImage = [UIImage imageNamed:hightImageNameArray[i]];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-        [navigationControllers addObject:navigationController];
-    }
-    [self setViewControllers:navigationControllers.copy];
-    
-    //tabBar上添加一个UIButton遮盖住中间的UITabBarButton
-    self.postButton.frame = CGRectMake((self.tabBar.frame.size.width-self.tabBar.frame.size.height)/2, 5, self.tabBar.frame.size.height, self.tabBar.frame.size.height);
-    [self.tabBar addSubview:self.postButton];
-    
-    self.delegate = (id)self;
+    // 创建自定义tabBar
+    DJTabBar *customTabBar = [[DJTabBar alloc] init];
+    // 设置frame
+    customTabBar.frame = self.tabBar.bounds;
+    customTabBar.frame = CGRectMake(self.tabBar.bounds.origin.x,
+                                    self.tabBar.bounds.origin.y,
+                                    self.tabBar.bounds.size.width,
+                                    TABBARFULL_HEIGHT);
+    [self.tabBar addSubview:customTabBar];
+    self.customTabBar = customTabBar;
+    // 设置代理
+    customTabBar.delegate = (id)self;
+    self.delegate = self;
 }
 
-// 即将点击哪个控制器代理方法，需设置self.delegate = self;
-- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    UINavigationController *navVC = (UINavigationController *)viewController;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // 遍历系统的tabbar移除不需要的控件
+    for (UIView *subView in self.tabBar.subviews) {
+        // UITabBarButton私有API, 普通开发者不能使用
+        if ([subView isKindOfClass:[UIControl class]]) {
+            // 判断如果子控件时UITabBarButton, 就删除
+            [subView removeFromSuperview];
+        }
+    }
+}
+
+
+#pragma mark - TabBarD·elegate
+- (void)tabBar:(DJTabBar *)tabBar selectedButtonfrom:(NSInteger)from to:(NSInteger)to
+{
+    NSLog(@"从第%ld控制器切换到第%ld控制器",(long)from,(long)to);
     
-    // 切换控制器之前先判断是否登录
-    if (![navVC.topViewController isKindOfClass:[DJHomePageViewController class]] && ![DJTikTok shareInstance].myUserInfo) {
+    // 当没有登录时，进入登录界面
+    if (![DJTikTok shareInstance].myUserInfo && to != 0 && to != 4) {
         DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         navController.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:navController animated:YES completion:nil];
-
-        return NO;
+        return;
     }
     
-    
-    if ([viewController isKindOfClass:[UITableViewController class]]) {
-        // 点击了中间的那个控制器，此时需要替换成自己的点击事件
-        [self centerButtonAction];
-        return NO;
+    if (from != to) {
+        UIImageView *imageView = [tabBar.buttons[to] imageView];
+        [self addRotateAnimationOnView:imageView];
     }
-    
-    
-    
-    
-    return YES;
+
+    self.selectedIndex = to;
 }
 
-- (UIButton *)centerButton {
-    if (!_postButton) {
-        _postButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_postButton setImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateNormal];
-        [_postButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
-        
-        [_postButton addTarget:self action:@selector(centerButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _postButton;
+
+/// 旋转动画
+- (void)addRotateAnimationOnView:(UIView *)animationView {
+   [UIView animateWithDuration:0.32 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+       animationView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+   } completion:nil];
+   
+   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       [UIView animateWithDuration:0.70 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+           animationView.layer.transform = CATransform3DMakeRotation(2 * M_PI, 0, 1, 0);
+       } completion:nil];
+   });
 }
 
-- (void)centerButtonAction {
-    NSLog(@"拦截了控制器跳转，在这里面做自己想做的事");
-}
+
 
 @end

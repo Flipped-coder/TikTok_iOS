@@ -84,8 +84,15 @@
             
         case DJFacebookStandbyLoginType: {
             [DJUser getFacebookStandbyTTKUserInfoWithViewController:viewController CompletionHandler:^(id resultObject, NSError *error) {
-                handler([DJUser initUserInfo:resultObject], error);
-            }];
+                DJTikTok *tiktok = [DJTikTok shareInstance];
+                [tiktok setUserToken:[resultObject objectForKey:@"token"]];
+                
+                [DJUser getMyUserInfo];
+                
+                
+                NSLog(@"");
+                
+                handler(nil, error);            }];
         }   break;
         default:break;
     }
@@ -436,7 +443,7 @@
         if (!error) {
             
             // 获取第三方平台UserInfo
-            DJStandbyUserInfo *standbyInfo = [DJStandbyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJGoogleStandbyLoginType];
+            DJStandbyUserInfo *standbyInfo = [DJStandbyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJFacebookStandbyLoginType];
             // 获取请求体信息
             DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:standbyInfo clientInfo:clientInfo];
             // 获取HTTP请求信息

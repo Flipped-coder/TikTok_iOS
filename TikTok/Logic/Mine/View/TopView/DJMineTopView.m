@@ -55,19 +55,20 @@
     // 头像
     self.profileImage = [[UIImageView alloc] init];
     [self.profileImage setFrame:CGRectMake(20, 150, 90, 90)];
-    NSURL *imageUrl = [NSURL URLWithString:userInfo.avatar];
-    // 异步加载图片
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-        // 回到主线程更新UI
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.profileImage.image = image;
-            [self.profileImage setNeedsDisplay];
-        });
-    });
-    //[self.profileImage setImage:[UIImage imageNamed:@"bg3"]];
+//    NSURL *imageUrl = [NSURL URLWithString:userInfo.avatar];
+//    // 异步加载图片
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+//        UIImage *image = [UIImage imageWithData:imageData];
+//
+//        // 回到主线程更新UI
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.profileImage.image = image;
+//            [self.profileImage setNeedsDisplay];
+//        });
+//    });
+    
+    [self.profileImage setImage:[UIImage imageNamed:@"bg3"]];
     
     /// 设置圆角
     self.profileImage.layer.masksToBounds=YES;
@@ -82,7 +83,7 @@
                                                                                                                                150,
                                                                                                                                30)];
 
-    self.username.text = userInfo.nickname;//@"Flipped";
+    self.username.text = @"Flipped";//userInfo.nickname;
     self.username.textColor = [UIColor whiteColor];
     self.username.font = [UIFont systemFontOfSize:22 weight:UIFontWeightMedium];
     self.username.numberOfLines = 1;

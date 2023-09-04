@@ -65,12 +65,13 @@
 - (void)editUserInfo {
     EditUserInfoViewController *editUserInfoVC = [[EditUserInfoViewController alloc] init];
     [editUserInfoVC setHidesBottomBarWhenPushed:YES];
-    [editUserInfoVC.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setAlpha:1];
     [editUserInfoVC.navigationController.navigationItem setTitle:@"个人信息"];
     [self.navigationController pushViewController:editUserInfoVC animated:YES];
 }
 - (void)setting {
     SettingViewController *settingVC = [[SettingViewController alloc] init];
+    [self.navigationController.navigationBar setAlpha:1];
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 

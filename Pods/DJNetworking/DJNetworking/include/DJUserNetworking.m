@@ -390,7 +390,7 @@
 
     // 设置请求格式为 JSON
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
+
     // 发起 GET 请求
     [manager POST:url
       parameters:parameters

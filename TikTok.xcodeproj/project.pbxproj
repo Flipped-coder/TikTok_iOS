@@ -24,6 +24,8 @@
 		3579BC482A8141610068EBC5 /* TikTokTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC472A8141610068EBC5 /* TikTokTests.m */; };
 		3579BC522A8141610068EBC5 /* TikTokUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC512A8141610068EBC5 /* TikTokUITests.m */; };
 		3579BC542A8141610068EBC5 /* TikTokUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC532A8141610068EBC5 /* TikTokUITestsLaunchTests.m */; };
+		3599DBE52AA641E800E6CBC9 /* DJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3599DBE42AA641E800E6CBC9 /* DJTabBarButton.m */; };
+		3599DBE82AA642AD00E6CBC9 /* DJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3599DBE72AA642AD00E6CBC9 /* DJTabBar.m */; };
 		35A3E7C82A88D65300C181F4 /* DJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7C72A88D65300C181F4 /* DJLoginViewController.m */; };
 		35A3E7CF2A890AC700C181F4 /* DJLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7CE2A890AC700C181F4 /* DJLoginView.m */; };
 		35A3E7D22A8951ED00C181F4 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7D12A8951ED00C181F4 /* DJRegisterViewController.m */; };
@@ -103,6 +105,10 @@
 		3579BC4D2A8141610068EBC5 /* TikTokUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikTokUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3579BC512A8141610068EBC5 /* TikTokUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TikTokUITests.m; sourceTree = "<group>"; };
 		3579BC532A8141610068EBC5 /* TikTokUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TikTokUITestsLaunchTests.m; sourceTree = "<group>"; };
+		3599DBE32AA641E800E6CBC9 /* DJTabBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJTabBarButton.h; sourceTree = "<group>"; };
+		3599DBE42AA641E800E6CBC9 /* DJTabBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJTabBarButton.m; sourceTree = "<group>"; };
+		3599DBE62AA642AD00E6CBC9 /* DJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJTabBar.h; sourceTree = "<group>"; };
+		3599DBE72AA642AD00E6CBC9 /* DJTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJTabBar.m; sourceTree = "<group>"; };
 		35A3E7C62A88D65300C181F4 /* DJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginViewController.h; sourceTree = "<group>"; };
 		35A3E7C72A88D65300C181F4 /* DJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoginViewController.m; sourceTree = "<group>"; };
 		35A3E7CD2A890AC700C181F4 /* DJLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginView.h; sourceTree = "<group>"; };
@@ -311,6 +317,10 @@
 				356FDE502A98ED3700C1BE39 /* SceneDelegate.m */,
 				356FDE522A98ED8100C1BE39 /* DJTabBarController.h */,
 				356FDE532A98ED8100C1BE39 /* DJTabBarController.m */,
+				3599DBE62AA642AD00E6CBC9 /* DJTabBar.h */,
+				3599DBE72AA642AD00E6CBC9 /* DJTabBar.m */,
+				3599DBE32AA641E800E6CBC9 /* DJTabBarButton.h */,
+				3599DBE42AA641E800E6CBC9 /* DJTabBarButton.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -622,6 +632,7 @@
 				35EE36C92A85777800740D63 /* DJHomePageViewController.m in Sources */,
 				35A3E7D22A8951ED00C181F4 /* DJRegisterViewController.m in Sources */,
 				356460EA2AA4EAC800AB60B4 /* DJUserInfoItemsInfo.m in Sources */,
+				3599DBE52AA641E800E6CBC9 /* DJTabBarButton.m in Sources */,
 				35EE36F82A8731C400740D63 /* DJMineBottomSrcollView.m in Sources */,
 				35EE36F52A87317200740D63 /* DJMineTopView.m in Sources */,
 				3579BC3E2A8141600068EBC5 /* main.m in Sources */,
@@ -642,6 +653,7 @@
 				35A3E7D52A89576C00C181F4 /* DJRegisterView.m in Sources */,
 				356460ED2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.m in Sources */,
 				356460E42AA4AE4C00AB60B4 /* SettingViewController.m in Sources */,
+				3599DBE82AA642AD00E6CBC9 /* DJTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

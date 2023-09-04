@@ -54,9 +54,9 @@
 #pragma mark - view 加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"个人信息";
-    [self.navigationController.navigationBar setNeedsLayout];
-    [self.navigationController.navigationBar layoutIfNeeded];
+//    self.navigationItem.title = @"个人信息";
+//    [self.navigationController.navigationBar setNeedsLayout];
+//    [self.navigationController.navigationBar layoutIfNeeded];
     [self.tableView reloadData];
 }
 

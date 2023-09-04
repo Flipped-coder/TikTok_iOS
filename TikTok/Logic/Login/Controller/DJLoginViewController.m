@@ -78,9 +78,8 @@
 - (void)googleLogin {
     
     [DJUser loginThirdPartyWithLoginPathway:DJGoogleStandbyLoginType viewController:self completionHandler:^(id resultObject, NSError *error) {
-        NSLog(@"");
-        DJUser *userInfo = [DJUser myInfo];
-        
+
+
         [self back];
     }];
     
@@ -88,6 +87,9 @@
 }
 
 - (void)facebookLogin {
+    [DJUser loginThirdPartyWithLoginPathway:DJFacebookStandbyLoginType viewController:self completionHandler:^(id resultObject, NSError *error) {
+        [self back];
+    }];
 
 
 }

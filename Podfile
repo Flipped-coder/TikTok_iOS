@@ -7,4 +7,10 @@ target 'TikTok' do
   
  
   pod 'TikTok_iOS_SDK', '~> 0.2.6'
+
+
+
+
+
+
 end

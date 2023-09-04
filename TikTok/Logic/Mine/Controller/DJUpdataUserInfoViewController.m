@@ -7,9 +7,25 @@
 
 #import "DJUpdataUserInfoViewController.h"
 #import "DJColor.h"
+#import "DJScreen.h"
+#import <TikTok_iOS_SDK/TikTok_iOS_SDK.h>
+
 
 @interface DJUpdataUserInfoViewController ()
 @property (nonatomic, strong, readwrite) DJUserInfoItem *itemsInfo;
+@property (nonatomic, strong, readwrite) UIButton *finishButton;
+@property (nonatomic, strong, readwrite) DJUser *user;
+//@property (nonatomic, strong, readwrite) MMMineTextView *mineTextView;
+@property (nonatomic, strong, readwrite) DJUserInfo *userInfo;
+
+// 跟选择有关的button
+@property (nonatomic, strong, readwrite) UIButton *pickChangeButton;
+@property (nonatomic, strong, readwrite) UILabel *pickButtonLeftLabel;
+@property (nonatomic, strong, readwrite) UILabel *pickButtonRightLabel;
+
+// 跟修改头像有关
+@property (nonatomic, strong, readwrite) UIImageView *headImageView;
+@property (nonatomic, strong, readwrite) UIButton *pickPictureButton;
 
 @end
 
@@ -20,7 +36,7 @@
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController.navigationBar setAlpha:1];
-        [self.tabBarController.tabBar setHidden:YES];
+        [self.tabBarController.tabBar setHidden:YES];        
         
         self.itemsInfo = infoItem;
         self.view.backgroundColor = WECHAT_BACKGROUND_GREY;
@@ -31,7 +47,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.tabBarController.tabBar setHidden:YES];
+
+    
 }
 
 
