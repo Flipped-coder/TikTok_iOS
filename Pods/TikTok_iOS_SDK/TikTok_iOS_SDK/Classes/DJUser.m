@@ -110,6 +110,9 @@
 + (void)getMyUserInfo {
     DJTikTok *tiktok = [DJTikTok shareInstance];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    if(!tiktok.userToken)
+        return;
 
     // 创建会话配置
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];

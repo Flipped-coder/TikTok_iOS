@@ -41,20 +41,23 @@
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 
-    //    UITabBar *tabBar = [UITabBar appearance];
-    //    //[tabBar setBackgroundImage:[UIImage imageNamed:@"bg2"]];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self.tabBar setBarTintColor:[UIColor whiteColor]];
+        [self.tabBarController.tabBar setNeedsLayout];
+        [self.tabBarController.tabBar layoutIfNeeded];
     };
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tabBar setBarTintColor:[UIColor whiteColor]];
+    [self.tabBarController.tabBar setNeedsLayout];
+    [self.tabBarController.tabBar layoutIfNeeded];
     //[self.tabBar setBackgroundImage:[UIImage imageNamed:@"bg2"]];
 }
 
@@ -104,13 +107,13 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     UINavigationController *navVC = (UINavigationController *)viewController;
     
-    
+    // 切换控制器之前先判断是否登录
     if (![navVC.topViewController isKindOfClass:[DJHomePageViewController class]] && ![DJTikTok shareInstance].myUserInfo) {
         DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         navController.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:navController animated:YES completion:nil];
-        
+
         return NO;
     }
     

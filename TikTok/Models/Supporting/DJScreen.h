@@ -6,6 +6,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "DJDevice.h"
 
 #ifndef DJScreen_h
 #define DJScreen_h
@@ -18,25 +19,24 @@
 #define VIEW_HEIGHT(View)       (View.frame.size.height)
 
 
-
 // 顶部高度
-#define STATUSBARHEIGHT 22 // 还要注意statusBar下面的navigationBar的高度:44
-#define NAVIGATIONBARHEIGHT (44)
-#define STATUS_NAVIGATION_BAR_HEIGHT (STATUSBARHEIGHT + NAVIGATIONBARHEIGHT)  // 上面的整体高度
+#define TOPSAFA_HEIGHT [DJDevice safeDistanceTop] // 顶部安全区高度
+#define TOPSTATUSBAR_HEIGHT [DJDevice statusBarHeight]  // 顶部状态栏高度（包括安全区）
+#define NAVIGATION_HEIGHT [DJDevice navigationBarHeight]    // 导航栏高度
+#define NAVIGATIONFULL_HEIGHT [DJDevice navigationFullHeight] // 顶部整体高度（导航栏+状态栏）
+
 
 // 底部高度
-#define SAFEDISTANCEBOTTOM safeDistanceBottom()
-#define TABBARHEIGHT (49)
-#define SAFEDISTANCE_TABBAR_HEIGHT (SAFEDISTANCEBOTTOM + TABBARHEIGHT)  // 下面的整体高度
+#define BOTTOMSAFA_HEIGHT [DJDevice safeDistanceBottom]     // 顶部安全区高度
+#define TABBAR_HEIGHT [DJDevice tabBarHeight]               // 底部导航栏高度
+#define TABBARFULL_HEIGHT [DJDevice tabBarFullHeight]       // 下面的整体高度(底部导航栏+底部安全区)
 
-#define UI(x) UIAdapter(x)
-#define UIRect(x, y, width, height) UIRectAdapter(x, y, width, height)
 
 
 // Mine 组件中
-#define TOPVIEW_HEIGHT (400 + STATUS_NAVIGATION_BAR_HEIGHT)
+#define TOPVIEW_HEIGHT (400 + NAVIGATIONFULL_HEIGHT)
 #define BACKGROUND_ONE_HEIGHT 450
-#define BACKGROUND_TWO_HEIGHT (TOPVIEW_HEIGHT - 75 - BACKGROUND_TWO_Y + STATUS_NAVIGATION_BAR_HEIGHT)
+#define BACKGROUND_TWO_HEIGHT (TOPVIEW_HEIGHT - 75 - BACKGROUND_TWO_Y + NAVIGATIONFULL_HEIGHT)
 #define BACKGROUND_TWO_Y (BACKGROUND_ONE_HEIGHT - 42)
 
 

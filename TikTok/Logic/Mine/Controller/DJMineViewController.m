@@ -64,6 +64,9 @@
 #pragma mark --UIButton_callback
 - (void)editUserInfo {
     EditUserInfoViewController *editUserInfoVC = [[EditUserInfoViewController alloc] init];
+    [editUserInfoVC setHidesBottomBarWhenPushed:YES];
+    [editUserInfoVC.navigationController.navigationBar setTranslucent:NO];
+    [editUserInfoVC.navigationController.navigationItem setTitle:@"个人信息"];
     [self.navigationController pushViewController:editUserInfoVC animated:YES];
 }
 - (void)setting {

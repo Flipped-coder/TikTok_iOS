@@ -33,15 +33,14 @@
         [self.navigationController.navigationBar setAlpha:1];
         [self.tabBarController.tabBar setHidden:YES];
         
-        self.navigationItem.title = @"个人信息";
         self.myUser = [DJUser myInfo];
         self.infoArray = (NSArray<DJUserInfoItem *> *)[[DJUserInfoItemsInfo alloc] init];
         
         [self.view addSubview:({
             self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                                       STATUS_NAVIGATION_BAR_HEIGHT,
+                                                                       NAVIGATIONFULL_HEIGHT,
                                                                        SCREEN_WIDTH,
-                                                                       SCREEN_HEIGHT - STATUS_NAVIGATION_BAR_HEIGHT)];
+                                                                       SCREEN_HEIGHT - NAVIGATIONFULL_HEIGHT)];
             self.tableView.dataSource = self;
             self.tableView.delegate = self;
             self.tableView.backgroundColor = WECHAT_BACKGROUND_GREY;
@@ -55,6 +54,9 @@
 #pragma mark - view 加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"个人信息";
+    [self.navigationController.navigationBar setNeedsLayout];
+    [self.navigationController.navigationBar layoutIfNeeded];
     [self.tableView reloadData];
 }
 

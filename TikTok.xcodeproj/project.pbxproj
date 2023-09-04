@@ -14,6 +14,7 @@
 		356460F02AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 356460EF2AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m */; };
 		356FDE512A98ED3700C1BE39 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 356FDE502A98ED3700C1BE39 /* SceneDelegate.m */; };
 		356FDE542A98ED8100C1BE39 /* DJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356FDE532A98ED8100C1BE39 /* DJTabBarController.m */; };
+		35724F362AA5ABB2005F0633 /* DJDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35724F352AA5ABB2005F0633 /* DJDevice.m */; };
 		3579BC2A2A81415F0068EBC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC292A81415F0068EBC5 /* AppDelegate.m */; };
 		3579BC332A81415F0068EBC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3579BC312A81415F0068EBC5 /* Main.storyboard */; };
 		3579BC362A81415F0068EBC5 /* TikTok.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC342A81415F0068EBC5 /* TikTok.xcdatamodeld */; };
@@ -86,6 +87,8 @@
 		356FDE502A98ED3700C1BE39 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		356FDE522A98ED8100C1BE39 /* DJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJTabBarController.h; sourceTree = "<group>"; };
 		356FDE532A98ED8100C1BE39 /* DJTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJTabBarController.m; sourceTree = "<group>"; };
+		35724F342AA5ABB2005F0633 /* DJDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJDevice.h; sourceTree = "<group>"; };
+		35724F352AA5ABB2005F0633 /* DJDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJDevice.m; sourceTree = "<group>"; };
 		3579BC252A81415F0068EBC5 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3579BC282A81415F0068EBC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3579BC292A81415F0068EBC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 			children = (
 				35EE36EC2A85AF6700740D63 /* DJScreen.h */,
 				35EE36FE2A87813D00740D63 /* DJColor.h */,
+				35724F342AA5ABB2005F0633 /* DJDevice.h */,
+				35724F352AA5ABB2005F0633 /* DJDevice.m */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -624,6 +629,7 @@
 				35EE36CF2A85779200740D63 /* DJECommerceViewController.m in Sources */,
 				356460F02AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m in Sources */,
 				3579BC362A81415F0068EBC5 /* TikTok.xcdatamodeld in Sources */,
+				35724F362AA5ABB2005F0633 /* DJDevice.m in Sources */,
 				35A3E7CF2A890AC700C181F4 /* DJLoginView.m in Sources */,
 				35EE36FB2A87331100740D63 /* DJMineVideoCollectionView.m in Sources */,
 				35EE36EB2A85A6F000740D63 /* DJMineView.m in Sources */,
