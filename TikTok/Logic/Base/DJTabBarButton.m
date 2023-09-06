@@ -32,7 +32,7 @@
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
     CGFloat imageX = 0;
-    CGFloat imageY = 0;
+    CGFloat imageY = 6;
     CGFloat imageW = self.frame.size.width;
     CGFloat imageH = self.frame.size.height * TabBarButtonRatio;
     return CGRectMake(imageX, imageY, imageW, imageH);
@@ -42,7 +42,7 @@
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
     CGFloat titleX = 0;
-    CGFloat titleY = self.frame.size.height * TabBarButtonRatio;
+    CGFloat titleY = self.frame.size.height * TabBarButtonRatio + 10;
     CGFloat titleW = self.frame.size.width;
     CGFloat titleH = self.frame.size.height - titleY;
     

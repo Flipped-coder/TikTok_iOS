@@ -26,6 +26,7 @@
 		3579BC542A8141610068EBC5 /* TikTokUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC532A8141610068EBC5 /* TikTokUITestsLaunchTests.m */; };
 		3599DBE52AA641E800E6CBC9 /* DJTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3599DBE42AA641E800E6CBC9 /* DJTabBarButton.m */; };
 		3599DBE82AA642AD00E6CBC9 /* DJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3599DBE72AA642AD00E6CBC9 /* DJTabBar.m */; };
+		3599DBEF2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3599DBEE2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m */; };
 		35A3E7C82A88D65300C181F4 /* DJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7C72A88D65300C181F4 /* DJLoginViewController.m */; };
 		35A3E7CF2A890AC700C181F4 /* DJLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7CE2A890AC700C181F4 /* DJLoginView.m */; };
 		35A3E7D22A8951ED00C181F4 /* DJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A3E7D12A8951ED00C181F4 /* DJRegisterViewController.m */; };
@@ -109,6 +110,8 @@
 		3599DBE42AA641E800E6CBC9 /* DJTabBarButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJTabBarButton.m; sourceTree = "<group>"; };
 		3599DBE62AA642AD00E6CBC9 /* DJTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJTabBar.h; sourceTree = "<group>"; };
 		3599DBE72AA642AD00E6CBC9 /* DJTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJTabBar.m; sourceTree = "<group>"; };
+		3599DBED2AA8960D00E6CBC9 /* DJUpdataUserInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJUpdataUserInfoView.h; sourceTree = "<group>"; };
+		3599DBEE2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJUpdataUserInfoView.m; sourceTree = "<group>"; };
 		35A3E7C62A88D65300C181F4 /* DJLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginViewController.h; sourceTree = "<group>"; };
 		35A3E7C72A88D65300C181F4 /* DJLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoginViewController.m; sourceTree = "<group>"; };
 		35A3E7CD2A890AC700C181F4 /* DJLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoginView.h; sourceTree = "<group>"; };
@@ -222,6 +225,50 @@
 				3579BC532A8141610068EBC5 /* TikTokUITestsLaunchTests.m */,
 			);
 			path = TikTokUITests;
+			sourceTree = "<group>";
+		};
+		3599DBE92AA8957D00E6CBC9 /* MineView */ = {
+			isa = PBXGroup;
+			children = (
+				35EE36E92A85A6F000740D63 /* DJMineView.h */,
+				35EE36EA2A85A6F000740D63 /* DJMineView.m */,
+				35EE36FC2A87332C00740D63 /* TopView */,
+				35EE36FD2A87333400740D63 /* BottomView */,
+			);
+			path = MineView;
+			sourceTree = "<group>";
+		};
+		3599DBEA2AA8958800E6CBC9 /* UserInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				356460EE2AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.h */,
+				356460EF2AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m */,
+				3599DBED2AA8960D00E6CBC9 /* DJUpdataUserInfoView.h */,
+				3599DBEE2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m */,
+			);
+			path = UserInfoView;
+			sourceTree = "<group>";
+		};
+		3599DBEB2AA895A100E6CBC9 /* MineController */ = {
+			isa = PBXGroup;
+			children = (
+				35EE36D32A8577A900740D63 /* DJMineViewController.h */,
+				35EE36D42A8577A900740D63 /* DJMineViewController.m */,
+			);
+			path = MineController;
+			sourceTree = "<group>";
+		};
+		3599DBEC2AA895AC00E6CBC9 /* UserInfoController */ = {
+			isa = PBXGroup;
+			children = (
+				356460DF2AA4AD9000AB60B4 /* EditUserInfoViewController.h */,
+				356460E02AA4AD9000AB60B4 /* EditUserInfoViewController.m */,
+				356460E22AA4AE4C00AB60B4 /* SettingViewController.h */,
+				356460E32AA4AE4C00AB60B4 /* SettingViewController.m */,
+				356460EB2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.h */,
+				356460EC2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.m */,
+			);
+			path = UserInfoController;
 			sourceTree = "<group>";
 		};
 		35A3E7C42A88D4BB00C181F4 /* Login */ = {
@@ -380,10 +427,8 @@
 		35EE36E62A85A64400740D63 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35EE36E92A85A6F000740D63 /* DJMineView.h */,
-				35EE36EA2A85A6F000740D63 /* DJMineView.m */,
-				35EE36FC2A87332C00740D63 /* TopView */,
-				35EE36FD2A87333400740D63 /* BottomView */,
+				3599DBE92AA8957D00E6CBC9 /* MineView */,
+				3599DBEA2AA8958800E6CBC9 /* UserInfoView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,14 +436,8 @@
 		35EE36E72A85A64A00740D63 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				35EE36D32A8577A900740D63 /* DJMineViewController.h */,
-				35EE36D42A8577A900740D63 /* DJMineViewController.m */,
-				356460DF2AA4AD9000AB60B4 /* EditUserInfoViewController.h */,
-				356460E02AA4AD9000AB60B4 /* EditUserInfoViewController.m */,
-				356460E22AA4AE4C00AB60B4 /* SettingViewController.h */,
-				356460E32AA4AE4C00AB60B4 /* SettingViewController.m */,
-				356460EB2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.h */,
-				356460EC2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.m */,
+				3599DBEB2AA895A100E6CBC9 /* MineController */,
+				3599DBEC2AA895AC00E6CBC9 /* UserInfoController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,8 +447,6 @@
 			children = (
 				356460E82AA4EAC800AB60B4 /* DJUserInfoItemsInfo.h */,
 				356460E92AA4EAC800AB60B4 /* DJUserInfoItemsInfo.m */,
-				356460EE2AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.h */,
-				356460EF2AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -640,6 +677,7 @@
 				35EE36CF2A85779200740D63 /* DJECommerceViewController.m in Sources */,
 				356460F02AA4F6AA00AB60B4 /* DJUserInfoTableViewCell.m in Sources */,
 				3579BC362A81415F0068EBC5 /* TikTok.xcdatamodeld in Sources */,
+				3599DBEF2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m in Sources */,
 				35724F362AA5ABB2005F0633 /* DJDevice.m in Sources */,
 				35A3E7CF2A890AC700C181F4 /* DJLoginView.m in Sources */,
 				35EE36FB2A87331100740D63 /* DJMineVideoCollectionView.m in Sources */,

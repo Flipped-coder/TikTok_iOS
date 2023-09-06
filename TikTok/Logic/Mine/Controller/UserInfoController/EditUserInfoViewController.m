@@ -29,24 +29,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.view.backgroundColor = [UIColor whiteColor];
-        [self.navigationController.navigationBar setAlpha:1];
-        [self.tabBarController.tabBar setHidden:YES];
-        
-        self.myUser = [DJUser myInfo];
-        self.infoArray = (NSArray<DJUserInfoItem *> *)[[DJUserInfoItemsInfo alloc] init];
-        
-        [self.view addSubview:({
-            self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                                       NAVIGATIONFULL_HEIGHT,
-                                                                       SCREEN_WIDTH,
-                                                                       SCREEN_HEIGHT - NAVIGATIONFULL_HEIGHT)];
-            self.tableView.dataSource = self;
-            self.tableView.delegate = self;
-            self.tableView.backgroundColor = WECHAT_BACKGROUND_GREY;
-            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            self.tableView;
-        })];
+        _myUser = [DJUser myInfo];
+        _infoArray = (NSArray<DJUserInfoItem *> *)[[DJUserInfoItemsInfo alloc] init];
     }
     return self;
 }
@@ -54,16 +38,30 @@
 #pragma mark - view 加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationItem.title = @"个人信息";
-//    [self.navigationController.navigationBar setNeedsLayout];
-//    [self.navigationController.navigationBar layoutIfNeeded];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setAlpha:1];
+    [self.navigationItem setTitle:@"个人信息"];
+    [self.tabBarController.tabBar setHidden:YES];
+    
+    [self.view addSubview:({
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   NAVIGATIONFULL_HEIGHT,
+                                                                   SCREEN_WIDTH,
+                                                                   SCREEN_HEIGHT - NAVIGATIONFULL_HEIGHT)];
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        self.tableView.backgroundColor = WECHAT_BACKGROUND_GREY;
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.tableView;
+    })];
+
     [self.tableView reloadData];
 }
 
 #pragma mark - view 生命周期结束
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.tabBarController.tabBar setHidden:NO];
+    //[self.tabBarController.tabBar setHidden:NO];
 }
 
 

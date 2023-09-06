@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, DJInfoType) {
     DJInfoTypeAddress                 = 4,  // 地址
     DJInfoTypeSignature               = 5,  // 签名
 };
-
+ 
 
 @interface DJUserInfoItem : NSObject
 @property (nonatomic, assign, readwrite) CGFloat height;

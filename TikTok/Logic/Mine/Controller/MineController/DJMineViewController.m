@@ -23,7 +23,7 @@
 - (instancetype)init {
     self = [super init];
     if(self) {
-        self.mineView = [[DJMineView alloc] init];
+        _mineView = [[DJMineView alloc] init];
 
     }
     return self;
@@ -32,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tabBarController.tabBar setHidden:NO];
     
     self.myUserInfo = [DJUser myInfo];
         
