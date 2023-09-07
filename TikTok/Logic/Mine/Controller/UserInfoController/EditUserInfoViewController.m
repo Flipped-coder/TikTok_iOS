@@ -73,9 +73,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DJUpdataUserInfoViewController *updataUserInfoVC = [[DJUpdataUserInfoViewController alloc] initWithItemsInfo:self.infoArray[indexPath.row]];
+    DJUserInfoItem *itemInfo  = self.infoArray[indexPath.row];
+    DJUpdataUserInfoViewController *updataUserInfoVC = [[DJUpdataUserInfoViewController alloc] initWithItemsInfo:itemInfo];
     [self.navigationController pushViewController:updataUserInfoVC animated:YES];
 }
+
 
 
 

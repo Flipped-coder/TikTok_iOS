@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define DARK_GRAY [UIColor colorWithRed:(119/255.0) green:(119/255.0) blue:(117/255.0) alpha:1.0]
 // 微信背景灰
 #define WECHAT_BACKGROUND_GREY [UIColor colorWithRed:237.0/255 green:237.0/255 blue:237.0/255 alpha:1.0]
-
+// 微信绿
+#define WECHAT_GREEN [UIColor colorWithRed:29.0/255 green:192.0/255 blue:99.0/255 alpha:1]
 
 
 

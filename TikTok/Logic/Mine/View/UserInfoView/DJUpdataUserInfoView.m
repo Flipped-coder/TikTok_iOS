@@ -8,6 +8,7 @@
 #import "DJUpdataUserInfoView.h"
 #import "DJScreen.h"
 #import "DJColor.h"
+#import <BRPickerView/BRPickerView.h>
 
 @implementation DJUpdataUserInfoView
 
@@ -36,11 +37,34 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor = WECHAT_BACKGROUND_GREY;
+
+        [self addSubview:({
+            UIImageView *headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_WIDTH)];
+            headImageView.image = [UIImage imageNamed:@"head"];
+            headImageView;
+        })];
+        [self addSubview:({
+            _pickPictureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            _pickPictureButton.frame = CGRectMake(0, SCREEN_WIDTH + 120, SCREEN_WIDTH, 60);
+            //[[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_WIDTH + 120, SCREEN_WIDTH, 60)];
+            [_pickPictureButton addSubview:({
+                UILabel *buttonLabel = [[UILabel alloc] init];
+                buttonLabel.text = @"从相册中选取图片";
+                buttonLabel.font = [UIFont systemFontOfSize:18];
+                buttonLabel.alpha = 0.7;
+                [buttonLabel sizeToFit];
+                buttonLabel.center = CGPointMake(_pickPictureButton.frame.size.width / 2, _pickPictureButton.frame.size.height / 2);
+                buttonLabel;
+            })];
+            _pickPictureButton.backgroundColor = [UIColor whiteColor];
+            _pickPictureButton;
+        })];
+
+
     }
     return self;
 }
-
 
 @end
 
@@ -50,16 +74,17 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = WECHAT_BACKGROUND_GREY;
         
         [self addSubview:({
-            _textView = [[UITextField alloc] initWithFrame:CGRectMake(15, 100, SCREEN_WIDTH - 30, 100)];
+            _textView = [[UITextField alloc] initWithFrame:CGRectMake(15, 100, SCREEN_WIDTH - 30, 50)];
             _textView.borderStyle = UITextBorderStyleRoundedRect;
             _textView.placeholder = @"请输入新昵称";
-            _textView.backgroundColor = LIGHT_GRAY;
+            _textView.backgroundColor = [UIColor whiteColor];
             _textView.textColor = [UIColor blackColor];
             _textView.textAlignment = NSTextAlignmentLeft;
-            _textView.font = [UIFont systemFontOfSize:15];
+            _textView.font = [UIFont systemFontOfSize:17];
+            _textView.text = @"Flipped";
             _textView;
         })];
         
@@ -76,6 +101,14 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = WECHAT_BACKGROUND_GREY;
+        
+        NSDate *minDate = [NSDate br_setYear:1900 month:1 day:1];
+        NSDate *maxDate = [NSDate date];
+        [BRDatePickerView showDatePickerWithMode:BRDatePickerModeYMD title:@"你的生日" selectValue:nil minDate:minDate maxDate:maxDate isAutoSelect:NO resultBlock:^(NSDate * _Nullable selectDate, NSString * _Nullable selectValue) {
+            NSLog(@"");
+        }];
+        
         
     }
     return self;
@@ -90,6 +123,11 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        NSArray *dataSource = @[@"男", @"女", @"其他"];
+        [BRStringPickerView showPickerWithTitle:@"性别" dataSourceArr:dataSource selectIndex:0 resultBlock:^(BRResultModel * _Nullable resultModel) {
+           
+            NSLog(@"");
+        }];
         
     }
     return self;
@@ -104,6 +142,12 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = WECHAT_BACKGROUND_GREY;
+
+        [BRAddressPickerView showAddressPickerWithMode:BRAddressPickerModeArea selectIndexs:nil isAutoSelect:NO resultBlock:^(BRProvinceModel * _Nullable province, BRCityModel * _Nullable city, BRAreaModel * _Nullable area) {
+            NSString *address = [NSString stringWithFormat:@"%@ %@ %@", province.name, city.name, area.name];
+            NSLog(@"");
+        }];
         
     }
     return self;
@@ -118,7 +162,20 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor = WECHAT_BACKGROUND_GREY;
+
+        [self addSubview:({
+            _textView = [[UITextView alloc] initWithFrame:CGRectMake(15, 100, SCREEN_WIDTH - 30, 100)];
+            _textView.text = @"这个人很懒，什么都没有留下。。。";
+            _textView.backgroundColor = [UIColor whiteColor];
+            _textView.scrollEnabled = NO;
+            _textView.editable = YES;
+            _textView.textColor = [UIColor blackColor];
+            _textView.font = [UIFont systemFontOfSize:17];
+            _textView.layer.cornerRadius = 6;
+            _textView.returnKeyType = UIReturnKeyDone;
+            _textView;
+        })];
     }
     return self;
 }

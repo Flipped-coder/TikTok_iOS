@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 头像信息 View 类
 @interface DJAvatarInfoView : UIView
+@property (nonatomic, strong) UIButton *pickPictureButton;
 
 @end
 
