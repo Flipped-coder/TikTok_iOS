@@ -49,15 +49,47 @@
 
 
 
-
-+ (void)loginWithAccount:(NSString *)account
-                    code:(NSString *)code
++ (void)loginWithAccount:(NSString * DJ_NULLABLE)account
+                    code:(NSString * DJ_NULLABLE)code
+         thirdPartyToken:(NSString * DJ_NULLABLE)token
+      thirdPartyUserInfo:(DJThirdPartyUserInfo * DJ_NULLABLE)thirdPartyUserInfo
             loginPathway:(DJLoginPathway)loginPathway
        completionHandler:(DJCompletionHandler DJ_NULLABLE)handler {
+    
+    switch (loginPathway) {
+        case DJGoogleStandbyLoginType: {
+            // 获取客户端信息
+            DJClientInfo *clientInfo = [DJClientInfo initClientInfo];
+            // 获取服务器信息
+            DJServerInfo *serverInfo = [DJServerInfo initServerInfoWithURLSchems:SERVER_SCHEMES serverIp:SERVER_IP erverPort:SERVER_PORT serverRoute:LOGIN_ROUTE_STANDBY_GOOGLE];
+            // 获取请求体信息
+            DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:thirdPartyUserInfo clientInfo:clientInfo];
+            // HTTP 请求信息
+            DJRequestInfo *requestInfo = [DJRequestInfo initRequestInfoWithServerInfo:serverInfo parameters:parameters];
+            //
+            [DJUserManageNetworking standbyThirdPartyLoginWithRequestInfo:requestInfo completionHandler:^(id  _Nullable resultObject, NSError * _Nullable error) {
+                handler(resultObject, error);
+            }];
+
+            
+        } break;
+            
+        case DJFacebookStandbyLoginType: {
+            
+        }break;
+            
+            
+        default:break;
+    }
+    
     
     
     
 }
+
+
+
+
 
 
 
@@ -97,6 +129,51 @@
         default:break;
     }
 }
+
+
+
++ (void)getThirdPartyTokenWithLoginPathway:(DJLoginPathway)loginPathway
+                            viewController:(UIViewController *)viewController
+                         completionHandler:(DJCompletionHandler DJ_NULLABLE)handler {
+    switch (loginPathway) {
+        case DJGoogleLoginType: {
+            [DJLogin googleLoginWithViewController:viewController handler:^(NSString * _Nullable token, NSError * _Nullable error) {
+                handler(token, error);
+            }];
+        } break;
+        
+        case DJFacebookLoginType : {
+            [DJLogin facebookLoginWithViewController:viewController handler:^(NSString * _Nullable token, NSError * _Nullable error) {
+                handler(token, error);
+            }];
+        }
+        default: break;
+    }
+}
+
+
+
++ (void)getThirePartyUserInfoWithToken:(NSString *)token
+                          loginPathway:(DJLoginPathway)loginPathway
+                     completionHandler:(DJCompletionHandler DJ_NULLABLE)handler {
+
+    switch (loginPathway) {
+        case DJGoogleLoginType: {
+            DJThirdPartyUserInfo *thirdUserInfo = [DJThirdPartyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJGoogleStandbyLoginType];
+            handler(thirdUserInfo, nil);
+        } break;
+        
+        case DJFacebookLoginType : {
+            DJThirdPartyUserInfo *thirdUserInfo = [DJThirdPartyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJFacebookStandbyLoginType];
+            handler(thirdUserInfo, nil);
+        }
+        default: break;
+    }
+    
+    
+}
+
+
 
 
 + (void)logout:(DJCompletionHandler DJ_NULLABLE)handler {
@@ -355,7 +432,7 @@
 // 备用方法google登录获取 ttkUserInfo
 + (void)getGoogleStandbyTTKUserInfoWithViewController:(UIViewController *)viewController
                                     CompletionHandler:(DJCompletionHandler DJ_NULLABLE)handler {
-    // 得到HTTP请求信息
+    // 得到HTTP请求信息(包括Google Token)
     [DJUser getGoogleStandbyLoginRequsetInfoWithViewController:viewController CompletionHandler:^(id resultObject, NSError *error) {
         if (!error) {
             DJRequestInfo *requestInfo = (DJRequestInfo *)resultObject;
@@ -386,9 +463,9 @@
         if (!error) {
             
             // 获取第三方平台UserInfo
-            DJStandbyUserInfo *standbyInfo = [DJStandbyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJGoogleStandbyLoginType];
+            DJThirdPartyUserInfo *thirdPartyUserInfo = [DJThirdPartyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJGoogleStandbyLoginType];
             // 获取请求体信息
-            DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:standbyInfo clientInfo:clientInfo];
+            DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:thirdPartyUserInfo clientInfo:clientInfo];
             // 获取HTTP请求信息
             DJRequestInfo *requestInfo = [DJRequestInfo initRequestInfoWithServerInfo:serverInfo parameters:parameters];
             dispatch_async(dispatch_get_main_queue(),^{
@@ -443,9 +520,9 @@
         if (!error) {
             
             // 获取第三方平台UserInfo
-            DJStandbyUserInfo *standbyInfo = [DJStandbyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJFacebookStandbyLoginType];
+            DJThirdPartyUserInfo *thirdPartyUserInfo = [DJThirdPartyUserInfo initStandbyUserInfoWithToken:token loginPathWay:DJFacebookStandbyLoginType];
             // 获取请求体信息
-            DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:standbyInfo clientInfo:clientInfo];
+            DJLoginParameters *parameters = [DJLoginParameters initLoginParametersWithPhone:nil email:nil verification_code:nil ttk_id:nil password:nil token:nil thirdPartyUserInfo:thirdPartyUserInfo clientInfo:clientInfo];
             // 获取HTTP请求信息
             DJRequestInfo *requestInfo = [DJRequestInfo initRequestInfoWithServerInfo:serverInfo parameters:parameters];
             dispatch_async(dispatch_get_main_queue(),^{
@@ -471,5 +548,9 @@
 
 
 
+
+//- (nonnull id)copyWithZone:(nullable NSZone *)zone {
+//
+//}
 
 @end

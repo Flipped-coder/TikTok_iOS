@@ -89,20 +89,20 @@
 
 
 #pragma mark - 第三方用户信息类
-@implementation DJStandbyUserInfo
+@implementation DJThirdPartyUserInfo
 
-+ (DJStandbyUserInfo *)initStandbyUserInfoWithToken:(NSString *)token
++ (DJThirdPartyUserInfo *)initStandbyUserInfoWithToken:(NSString *)token
                                        loginPathWay:(DJLoginPathway)loginPathWay {
     switch ((NSUInteger)loginPathWay) {
-        case DJGoogleStandbyLoginType:    return [DJStandbyUserInfo getGoogleUserInfoWithToken:token];   break;
-        case DJFacebookStandbyLoginType:  return [DJStandbyUserInfo getFacebookUserInfoWithToken:token]; break;
+        case DJGoogleStandbyLoginType:    return [DJThirdPartyUserInfo getGoogleUserInfoWithToken:token];   break;
+        case DJFacebookStandbyLoginType:  return [DJThirdPartyUserInfo getFacebookUserInfoWithToken:token]; break;
         default:                          return nil;
     }
     
 }
 
-+ (DJStandbyUserInfo *)getGoogleUserInfoWithToken:(NSString *)token {
-    __block DJStandbyUserInfo *userInfo = [[DJStandbyUserInfo alloc] init];
++ (DJThirdPartyUserInfo *)getGoogleUserInfoWithToken:(NSString *)token {
+    __block DJThirdPartyUserInfo *userInfo = [[DJThirdPartyUserInfo alloc] init];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/oauth2/v1/userinfo?access_token=%@", token];
@@ -137,8 +137,8 @@
     return userInfo;
 }
 
-+ (DJStandbyUserInfo *)getFacebookUserInfoWithToken:(NSString *)token {
-    __block DJStandbyUserInfo *userInfo = [[DJStandbyUserInfo alloc] init];
++ (DJThirdPartyUserInfo *)getFacebookUserInfoWithToken:(NSString *)token {
+    __block DJThirdPartyUserInfo *userInfo = [[DJThirdPartyUserInfo alloc] init];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     NSString *urlString = [NSString stringWithFormat:@"https://graph.facebook.com/v13.0/me?fields=name,email,picture&access_token=%@", token];
@@ -185,7 +185,7 @@
                                              ttk_id:(NSString * _Nullable)ttk_id
                                            password:(NSString * _Nullable)password
                                               token:(NSString * _Nullable)token
-                                 thirdPartyUserInfo:(DJStandbyUserInfo * _Nullable)thirdPartyUserInfo
+                                 thirdPartyUserInfo:(DJThirdPartyUserInfo * _Nullable)thirdPartyUserInfo
                                          clientInfo:(DJClientInfo * _Nullable)clientInfo {
     DJLoginParameters *loginParameters = [[DJLoginParameters alloc] init];
     loginParameters.phone = phone;
@@ -374,8 +374,6 @@
             }
         });
     }];
-    
-    
 }
 
 
@@ -390,7 +388,7 @@
 
     // 设置请求格式为 JSON
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-
+    
     // 发起 GET 请求
     [manager POST:url
       parameters:parameters

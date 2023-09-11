@@ -216,16 +216,20 @@ typedef NS_ENUM(NSUInteger, DJUserGender) {
 /**
  * @abstract 用户登录(账号密码登录)
  *
- * @param account                           登录账号（邮箱 ｜ 手机号｜ttk_id）
- * @param code                                  确认码   （密码 ｜ 验证码）
- * @param loginPathway                登录方式：手机密码｜手机验证码｜邮箱密码｜邮箱验证码｜ttkID密码 等方式
- * @param handler                           结果回调，resultObject 类型为 DJUser， error 错误信息
+ * @param account                                    登录账号（邮箱 ｜ 手机号｜ttk_id）
+ * @param code                                           确认码   （密码 ｜ 验证码）
+ * @param token                                         第三方平台 token
+ * @param thirdPartyUserInfo            第三方平台用户信息
+ * @param loginPathway                          登录方式：手机密码｜手机验证码｜邮箱密码｜邮箱验证码｜ttkID密码 ｜第三方登录 等方式
+ * @param handler                                     结果回调，resultObject 类型为 DJUser， error 错误信息
  *
  * - resultObject 简单封装的user对象
  * - error 错误信息
  */
-+ (void)loginWithAccount:(NSString *)account
-                    code:(NSString *)code
++ (void)loginWithAccount:(NSString * DJ_NULLABLE)account
+                    code:(NSString * DJ_NULLABLE)code
+         thirdPartyToken:(NSString * DJ_NULLABLE)token
+      thirdPartyUserInfo:(DJThirdPartyUserInfo * DJ_NULLABLE)thirdPartyUserInfo
             loginPathway:(DJLoginPathway)loginPathway
        completionHandler:(DJCompletionHandler DJ_NULLABLE)handler;
 
@@ -242,6 +246,39 @@ typedef NS_ENUM(NSUInteger, DJUserGender) {
 + (void)loginThirdPartyWithLoginPathway:(DJLoginPathway)loginPathway
                          viewController:(UIViewController *)viewController
                       completionHandler:(DJCompletionHandler DJ_NULLABLE)handler;
+
+
+
+/*!
+ * @abstract 获取第三方平台 Token
+ *
+ * @param loginPathway                       平台类型：Google、Facebook、Github等第三方平台
+ * @param viewController                  当前所在的控制器，在当前的控制器上弹出登录授权界面
+ * @param handler                                  结果回调，resultObject 类型为 NSString， error 错误信息
+ *
+ * @discussion 通过用户授权获取第三方平台发放的 token
+ */
++ (void)getThirdPartyTokenWithLoginPathway:(DJLoginPathway)loginPathway
+                            viewController:(UIViewController *)viewController
+                         completionHandler:(DJCompletionHandler DJ_NULLABLE)handler;
+
+
+
+/*!
+ * @abstract  获取第三方平台用户信息
+ *
+ * @param token                                      第三方平台发放的 token
+ * @param loginPathway                      平台类型：Google、Facebook、Github等第三方平台
+ * @param handler                                  结果回调，resultObject 类型为 DJThirdPartyUserInfo， error 错误信息
+ *
+ * @discussion 通过第三方平台发放的 token 获取第三方平台用户信息
+ */
++ (void)getThirePartyUserInfoWithToken:(NSString *)token
+                          loginPathway:(DJLoginPathway)loginPathway
+                     completionHandler:(DJCompletionHandler DJ_NULLABLE)handler;
+
+
+
 
 
 
@@ -432,8 +469,5 @@ typedef NS_ENUM(NSUInteger, DJUserGender) {
 
 
 NS_ASSUME_NONNULL_END
-
-
-
 
 

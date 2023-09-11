@@ -85,7 +85,7 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
 /**
  * 第三方用户信息类
  */
-@interface DJStandbyUserInfo : NSObject
+@interface DJThirdPartyUserInfo : NSObject
 /// 第三方平台用户 id
 @property (nonatomic, strong) NSString *thirdPartyId;
 /// 第三方平台昵称
@@ -97,8 +97,8 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
 /// 第三方平台类型
 @property (nonatomic) DJLoginPathway *loginPathWay;
 
-+ (DJStandbyUserInfo *)initStandbyUserInfoWithToken:(NSString *)token
-                                       loginPathWay:(DJLoginPathway)loginPathWay;
++ (DJThirdPartyUserInfo *)initStandbyUserInfoWithToken:(NSString *)token
+                                          loginPathWay:(DJLoginPathway)loginPathWay;
 
 @end
 
@@ -121,7 +121,7 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
 /// 第三方登录token
 @property (nonatomic, strong) NSString * __nullable token;
 /// 第三方平台用户信息
-@property (nonatomic, strong) DJStandbyUserInfo *thirdPartyUserInfo;
+@property (nonatomic, strong) DJThirdPartyUserInfo *thirdPartyUserInfo;
 /// 登录设备信息
 @property (nonatomic, strong) DJClientInfo *clientInfo;
 
@@ -131,7 +131,7 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
                                              ttk_id:(NSString * __nullable)ttk_id
                                            password:(NSString * __nullable)password
                                               token:(NSString * __nullable)token
-                                 thirdPartyUserInfo:(DJStandbyUserInfo * __nullable)thirdPartyUserInfo
+                                 thirdPartyUserInfo:(DJThirdPartyUserInfo * __nullable)thirdPartyUserInfo
                                          clientInfo:(DJClientInfo * __nullable)clientInfo;
 
 @end
@@ -241,6 +241,8 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
                             completionHandler:(DJNetworkingHandler)handler;
 
 
+
+
 // get网络请求
 + (void)getNetworkingWithURL:(NSString *)url
                      headers:(NSDictionary *)headers
@@ -255,6 +257,7 @@ typedef NS_ENUM(NSUInteger, DJLoginPathway) {
                       headers:(NSDictionary *)headers
                    parameters:(NSDictionary *)parameters
             CompletionHandler:(DJNetworkingHandler)handler;
+
 
 
 @end

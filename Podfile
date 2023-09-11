@@ -6,9 +6,10 @@ target 'TikTok' do
   use_frameworks!
   
  
-  pod 'TikTok_iOS_SDK', '~> 0.2.6'
+  pod 'TikTok_iOS_SDK', '~> 0.2.8'
   pod "TZImagePickerController"
   pod 'BRPickerView'
+  pod 'SVProgressHUD'
 
 
 

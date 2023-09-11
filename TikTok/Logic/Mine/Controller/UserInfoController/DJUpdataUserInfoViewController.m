@@ -18,8 +18,8 @@
 @property (nonatomic, strong, readwrite) DJUser *user;
 @property (nonatomic, strong, readwrite) DJUserInfo *userInfo;
 @property (nonatomic, strong, readwrite) DJUpdataUserInfoView *updataView;
-@property (nonatomic, strong, readwrite) DJAvatarInfoView *avatarView;
 @property (nonatomic, strong, readwrite) UIButton *finishButton;
+@property (nonatomic, strong, readwrite) DJAvatarInfoView *avatarView;
 
 
 
@@ -68,7 +68,11 @@
     
     
     
-    [self.avatarView.pickPictureButton addTarget:self action:@selector(loadImagePickerViewController) forControlEvents:UIControlEventTouchUpInside];
+    // AvatarInfoView 按钮注册监听
+    if (self.itemsInfo.infoType == DJInfoTypeAvatar) {
+        self.avatarView = (DJAvatarInfoView *)self.updataView.childView;
+        [self.avatarView.pickPictureButton addTarget:self action:@selector(loadImagePickerViewController) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     
 }
@@ -99,6 +103,8 @@
     
     [imagePickerVC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
 
+        self.avatarView.headImageView.image = photos[0];
+        [self.avatarView.headImageView setNeedsDisplay];
         NSLog(@"");
 
     }];

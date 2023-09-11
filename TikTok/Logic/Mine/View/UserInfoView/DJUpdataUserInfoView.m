@@ -40,9 +40,9 @@
         self.backgroundColor = WECHAT_BACKGROUND_GREY;
 
         [self addSubview:({
-            UIImageView *headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_WIDTH)];
-            headImageView.image = [UIImage imageNamed:@"head"];
-            headImageView;
+            _headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_WIDTH)];
+            _headImageView.image = [UIImage imageNamed:@"head"];
+            _headImageView;
         })];
         [self addSubview:({
             _pickPictureButton = [UIButton buttonWithType:UIButtonTypeCustom];

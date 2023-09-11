@@ -10,6 +10,7 @@
 #import "DJScreen.h"
 #import "DJRegisterViewController.h"
 #import <TikTok_iOS_SDK/TikTok_iOS_SDK.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface DJLoginViewController ()<UINavigationControllerDelegate>
 @property(nonatomic, strong) DJLoginView *loginView;
@@ -76,12 +77,29 @@
 }
 
 - (void)googleLogin {
-    
-    [DJUser loginThirdPartyWithLoginPathway:DJGoogleStandbyLoginType viewController:self completionHandler:^(id resultObject, NSError *error) {
-
-
-        [self back];
+    [DJUser getThirdPartyTokenWithLoginPathway:DJGoogleLoginType viewController:self completionHandler:^(id resultObject, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            [SVProgressHUD showWithStatus:@"正在登录"];
+        });
+        
+        [DJUser getThirePartyUserInfoWithToken:resultObject loginPathway:DJGoogleLoginType completionHandler:^(id resultObject, NSError *error) {
+            [DJUser loginWithAccount:nil code:nil thirdPartyToken:nil thirdPartyUserInfo:resultObject loginPathway:DJGoogleStandbyLoginType completionHandler:^(id resultObject, NSError *error) {
+                
+                
+                dispatch_async(dispatch_get_main_queue(),^{
+                    [SVProgressHUD dismiss];
+                });
+                [self back];
+                NSLog(@"");
+            }];
+        }];
     }];
+    
+//    [DJUser loginThirdPartyWithLoginPathway:DJGoogleStandbyLoginType viewController:self completionHandler:^(id resultObject, NSError *error) {
+//
+//
+//        [self back];
+//    }];
     
     
 }
