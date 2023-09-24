@@ -9,7 +9,7 @@
 #import "DJScreen.h"
 
 @implementation DJMineBottomSrcollView
-
+ 
 - (void)loadBottomSrcollView {
     
     self.backgroundColor = [UIColor grayColor];

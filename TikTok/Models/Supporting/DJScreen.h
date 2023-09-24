@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "DJDevice.h"
-
+ 
 #ifndef DJScreen_h
 #define DJScreen_h
 

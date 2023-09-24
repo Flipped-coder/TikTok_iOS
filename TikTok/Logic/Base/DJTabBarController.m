@@ -136,7 +136,7 @@
     NSLog(@"从第%ld控制器切换到第%ld控制器",(long)from,(long)to);
     
     // 当没有登录时，进入登录界面
-    if (![DJTikTok shareInstance].myUserInfo && to != 0 && to != 4) {
+    if (![DJTikTok shareInstance].myUserInfo && to != 0 && to != 4 && to != 1) {
         DJLoginViewController *loginVC = [[DJLoginViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginVC];
         navController.modalPresentationStyle = UIModalPresentationFullScreen;

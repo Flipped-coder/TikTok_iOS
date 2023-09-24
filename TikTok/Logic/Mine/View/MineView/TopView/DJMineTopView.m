@@ -55,19 +55,6 @@
     // 头像
     self.profileImage = [[UIImageView alloc] init];
     [self.profileImage setFrame:CGRectMake(20, 150, 90, 90)];
-//    NSURL *imageUrl = [NSURL URLWithString:userInfo.avatar];
-//    // 异步加载图片
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-//        UIImage *image = [UIImage imageWithData:imageData];
-//
-//        // 回到主线程更新UI
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.profileImage.image = image;
-//            [self.profileImage setNeedsDisplay];
-//        });
-//    });
-    
     [self.profileImage setImage:[UIImage imageNamed:@"bg3"]];
     
     /// 设置圆角
@@ -126,9 +113,9 @@
     // 点赞列表button
     self.favourBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.favourBtn setFrame:CGRectMake(self.favourCount.frame.origin.x,
-                                      self.favourCount.frame.origin.y,
-                                self.favourCount.frame.size.width + 30,
-                                   self.favourCount.frame.size.height)];
+                                        self.favourCount.frame.origin.y,
+                                        self.favourCount.frame.size.width + 30,
+                                        self.favourCount.frame.size.height)];
     self.favourBtn.backgroundColor = [UIColor clearColor];
     [self addSubview:self.favourBtn];
     
@@ -351,7 +338,7 @@
     [self addSubview:self.recentlyVisitTitle];
     
     
-    
+     
 #pragma mark -- Video_category
     // 我的视频列表
     self.myVideoBtn = [UIButton buttonWithType:UIButtonTypeSystem];
