@@ -1,22 +1,21 @@
 //
-//  DJVideoItem.m
+//  DJVideoItemView.m
 //  TikTok
 //
-//  Created by 邓杰 on 2023/9/22.
+//  Created by 邓杰 on 2023/9/26.
 //
 
-#import "DJVideoItem.h"
+#import "DJVideoItemView.h"
 #import "DJScreen.h"
 #import "DJColor.h"
 
-@implementation DJVideoItem
 
-- (void)loadVideoItem {
+@implementation DJVideoItemView
+
+- (void)loadVideoItemView {
     
     // 视频加载
-    self.videoPlayerView = [[UIView alloc] init];
-    [self.videoPlayerView setFrame:self.frame];
-    [self.videoPlayerView setBackgroundColor:[UIColor orangeColor]];
+    self.videoPlayerView = [[DJVideoPlayerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - TABBARFULL_HEIGHT)];
     [self addSubview:self.videoPlayerView];
     
     // 头像按钮
@@ -28,7 +27,7 @@
     [self.profileBtn.layer setCornerRadius:50 / 2];
     [self addSubview:self.profileBtn];
     
-    // 添加关注按钮
+    // 添加关注按钮 
     self.attentionBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.attentionBtn setFrame:CGRectMake(VIEW_X(self.profileBtn) + VIEW_WIDTH(self.profileBtn) / 2 - 11, 300, 22, 22)];
     [self.attentionBtn setBackgroundImage:[UIImage imageNamed:@"home_attention"] forState:UIControlStateNormal];
@@ -163,9 +162,5 @@
     [self addSubview:self.username];
 
 }
-
-
-
-
 
 @end

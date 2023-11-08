@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DJVideoNavBar.h"
-#import "DJVideoItem.h"
 #import "DJVideoScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,12 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DJHomePageView : UIView
 @property (nonatomic, strong) DJVideoNavBar *videoNavBar;
 @property (nonatomic, strong) UIScrollView *homeScrollView;
-@property (nonatomic, strong) NSMutableArray<DJVideoScrollView *> *videoScrollViewArray;
-@property (nonatomic, strong) DJVideoItem *videoItem;
-
-
-
-- (void)loadHomePageView;
+@property (nonatomic, strong) NSMutableArray<UIScrollView *> *videoScrollViewArray;
 
 @end
 

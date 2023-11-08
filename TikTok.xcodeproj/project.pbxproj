@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35132F5B2ABDA33000C76D95 /* DJHomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35132F5A2ABDA33000C76D95 /* DJHomePageView.m */; };
-		35132F5E2ABDA4FD00C76D95 /* DJVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 35132F5D2ABDA4FD00C76D95 /* DJVideoItem.m */; };
 		35132F612ABDA52800C76D95 /* DJVideoNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35132F602ABDA52800C76D95 /* DJVideoNavBar.m */; };
-		35132F6A2AC033E800C76D95 /* DJVideoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35132F692AC033E800C76D95 /* DJVideoScrollView.m */; };
+		353C106C2AF93F5200414139 /* DJVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C106B2AF93F5200414139 /* DJVideoPlayerView.m */; };
 		356460E12AA4AD9000AB60B4 /* EditUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356460E02AA4AD9000AB60B4 /* EditUserInfoViewController.m */; };
 		356460E42AA4AE4C00AB60B4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356460E32AA4AE4C00AB60B4 /* SettingViewController.m */; };
 		356460EA2AA4EAC800AB60B4 /* DJUserInfoItemsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 356460E92AA4EAC800AB60B4 /* DJUserInfoItemsInfo.m */; };
@@ -22,6 +21,9 @@
 		357837E62AC0AD3E00B015D4 /* DJMessageNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837E52AC0AD3E00B015D4 /* DJMessageNavBar.m */; };
 		357837E92AC0AF7E00B015D4 /* DJMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837E82AC0AF7E00B015D4 /* DJMessageView.m */; };
 		357837EC2AC0B37900B015D4 /* DJMessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837EB2AC0B37900B015D4 /* DJMessageTableView.m */; };
+		357837F92AC1EBF500B015D4 /* DJVideoItemViewReusePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837F82AC1EBF500B015D4 /* DJVideoItemViewReusePool.m */; };
+		357837FC2AC1EC1600B015D4 /* DJVideoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837FB2AC1EC1600B015D4 /* DJVideoItemView.m */; };
+		357837FF2AC1F8E500B015D4 /* DJVideoItemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 357837FE2AC1F8E500B015D4 /* DJVideoItemInfo.m */; };
 		3579BC2A2A81415F0068EBC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC292A81415F0068EBC5 /* AppDelegate.m */; };
 		3579BC332A81415F0068EBC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3579BC312A81415F0068EBC5 /* Main.storyboard */; };
 		3579BC362A81415F0068EBC5 /* TikTok.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3579BC342A81415F0068EBC5 /* TikTok.xcdatamodeld */; };
@@ -85,12 +87,10 @@
 		310E09D3605739DE8D273BF1 /* Pods_TikTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TikTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35132F592ABDA33000C76D95 /* DJHomePageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHomePageView.h; sourceTree = "<group>"; };
 		35132F5A2ABDA33000C76D95 /* DJHomePageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHomePageView.m; sourceTree = "<group>"; };
-		35132F5C2ABDA4FD00C76D95 /* DJVideoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoItem.h; sourceTree = "<group>"; };
-		35132F5D2ABDA4FD00C76D95 /* DJVideoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoItem.m; sourceTree = "<group>"; };
 		35132F5F2ABDA52800C76D95 /* DJVideoNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoNavBar.h; sourceTree = "<group>"; };
 		35132F602ABDA52800C76D95 /* DJVideoNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoNavBar.m; sourceTree = "<group>"; };
-		35132F682AC033E800C76D95 /* DJVideoScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoScrollView.h; sourceTree = "<group>"; };
-		35132F692AC033E800C76D95 /* DJVideoScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoScrollView.m; sourceTree = "<group>"; };
+		353C106A2AF93F5200414139 /* DJVideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoPlayerView.h; sourceTree = "<group>"; };
+		353C106B2AF93F5200414139 /* DJVideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoPlayerView.m; sourceTree = "<group>"; };
 		356460DF2AA4AD9000AB60B4 /* EditUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditUserInfoViewController.h; sourceTree = "<group>"; };
 		356460E02AA4AD9000AB60B4 /* EditUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditUserInfoViewController.m; sourceTree = "<group>"; };
 		356460E22AA4AE4C00AB60B4 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -113,6 +113,12 @@
 		357837E82AC0AF7E00B015D4 /* DJMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJMessageView.m; sourceTree = "<group>"; };
 		357837EA2AC0B37900B015D4 /* DJMessageTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJMessageTableView.h; sourceTree = "<group>"; };
 		357837EB2AC0B37900B015D4 /* DJMessageTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJMessageTableView.m; sourceTree = "<group>"; };
+		357837F72AC1EBF500B015D4 /* DJVideoItemViewReusePool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoItemViewReusePool.h; sourceTree = "<group>"; };
+		357837F82AC1EBF500B015D4 /* DJVideoItemViewReusePool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoItemViewReusePool.m; sourceTree = "<group>"; };
+		357837FA2AC1EC1600B015D4 /* DJVideoItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoItemView.h; sourceTree = "<group>"; };
+		357837FB2AC1EC1600B015D4 /* DJVideoItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoItemView.m; sourceTree = "<group>"; };
+		357837FD2AC1F8E500B015D4 /* DJVideoItemInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJVideoItemInfo.h; sourceTree = "<group>"; };
+		357837FE2AC1F8E500B015D4 /* DJVideoItemInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJVideoItemInfo.m; sourceTree = "<group>"; };
 		3579BC252A81415F0068EBC5 /* TikTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3579BC282A81415F0068EBC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3579BC292A81415F0068EBC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -210,12 +216,24 @@
 				35132F5A2ABDA33000C76D95 /* DJHomePageView.m */,
 				35132F5F2ABDA52800C76D95 /* DJVideoNavBar.h */,
 				35132F602ABDA52800C76D95 /* DJVideoNavBar.m */,
-				35132F682AC033E800C76D95 /* DJVideoScrollView.h */,
-				35132F692AC033E800C76D95 /* DJVideoScrollView.m */,
-				35132F5C2ABDA4FD00C76D95 /* DJVideoItem.h */,
-				35132F5D2ABDA4FD00C76D95 /* DJVideoItem.m */,
+				357837FA2AC1EC1600B015D4 /* DJVideoItemView.h */,
+				357837FB2AC1EC1600B015D4 /* DJVideoItemView.m */,
+				353C106A2AF93F5200414139 /* DJVideoPlayerView.h */,
+				353C106B2AF93F5200414139 /* DJVideoPlayerView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		353C106D2AF9BE7D00414139 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				35EE36C32A85773300740D63 /* HomePage */,
+				35EE36C42A85773B00740D63 /* Message */,
+				35EE36DC2A8595AB00740D63 /* Publish */,
+				35EE36C52A85774300740D63 /* E-Commerce */,
+				35EE36C62A85775700740D63 /* Mine */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		357837E22AC0AD1000B015D4 /* Controller */ = {
@@ -238,6 +256,17 @@
 				357837EB2AC0B37900B015D4 /* DJMessageTableView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		357837F62AC1EBA900B015D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				357837F72AC1EBF500B015D4 /* DJVideoItemViewReusePool.h */,
+				357837F82AC1EBF500B015D4 /* DJVideoItemViewReusePool.m */,
+				357837FD2AC1F8E500B015D4 /* DJVideoItemInfo.h */,
+				357837FE2AC1F8E500B015D4 /* DJVideoItemInfo.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3579BC1C2A81415F0068EBC5 = {
@@ -379,6 +408,7 @@
 		35EE36C32A85773300740D63 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				357837F62AC1EBA900B015D4 /* Model */,
 				35132F572ABDA30100C76D95 /* Controller */,
 				35132F582ABDA30B00C76D95 /* View */,
 			);
@@ -475,11 +505,7 @@
 			children = (
 				35EE36E02A85975200740D63 /* Base */,
 				35A3E7C42A88D4BB00C181F4 /* Login */,
-				35EE36C32A85773300740D63 /* HomePage */,
-				35EE36C42A85773B00740D63 /* Message */,
-				35EE36DC2A8595AB00740D63 /* Publish */,
-				35EE36C52A85774300740D63 /* E-Commerce */,
-				35EE36C62A85775700740D63 /* Mine */,
+				353C106D2AF9BE7D00414139 /* Content */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -748,24 +774,26 @@
 				3599DBEF2AA8960D00E6CBC9 /* DJUpdataUserInfoView.m in Sources */,
 				35724F362AA5ABB2005F0633 /* DJDevice.m in Sources */,
 				35A3E7CF2A890AC700C181F4 /* DJLoginView.m in Sources */,
+				353C106C2AF93F5200414139 /* DJVideoPlayerView.m in Sources */,
 				35EE36FB2A87331100740D63 /* DJMineVideoCollectionView.m in Sources */,
 				35EE36EB2A85A6F000740D63 /* DJMineView.m in Sources */,
 				3579BC2A2A81415F0068EBC5 /* AppDelegate.m in Sources */,
 				35EE36DF2A8595E000740D63 /* DJPublishViewController.m in Sources */,
+				357837FF2AC1F8E500B015D4 /* DJVideoItemInfo.m in Sources */,
 				356460E12AA4AD9000AB60B4 /* EditUserInfoViewController.m in Sources */,
 				35EE36D22A85779F00740D63 /* DJMessageViewController.m in Sources */,
 				35132F612ABDA52800C76D95 /* DJVideoNavBar.m in Sources */,
 				356FDE542A98ED8100C1BE39 /* DJTabBarController.m in Sources */,
 				356FDE512A98ED3700C1BE39 /* SceneDelegate.m in Sources */,
 				357837EC2AC0B37900B015D4 /* DJMessageTableView.m in Sources */,
+				357837FC2AC1EC1600B015D4 /* DJVideoItemView.m in Sources */,
 				35A3E7D52A89576C00C181F4 /* DJRegisterView.m in Sources */,
 				357837E62AC0AD3E00B015D4 /* DJMessageNavBar.m in Sources */,
+				357837F92AC1EBF500B015D4 /* DJVideoItemViewReusePool.m in Sources */,
 				356460ED2AA4F44600AB60B4 /* DJUpdataUserInfoViewController.m in Sources */,
 				356460E42AA4AE4C00AB60B4 /* SettingViewController.m in Sources */,
 				35132F5B2ABDA33000C76D95 /* DJHomePageView.m in Sources */,
-				35132F6A2AC033E800C76D95 /* DJVideoScrollView.m in Sources */,
 				3599DBE82AA642AD00E6CBC9 /* DJTabBar.m in Sources */,
-				35132F5E2ABDA4FD00C76D95 /* DJVideoItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

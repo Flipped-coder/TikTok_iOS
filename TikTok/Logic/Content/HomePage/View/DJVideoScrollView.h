@@ -6,12 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DJVideoItem.h"
+#import "DJVideoItemView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DJVideoScrollView : UIScrollView
-@property (nonatomic, strong) NSMutableArray<DJVideoItem *> *videoItemsArray;
+@property (nonatomic, strong) NSMutableArray<DJVideoItemView *> *videoItemsViewArray;
 
 
 - (void)loadVideoScrollView;

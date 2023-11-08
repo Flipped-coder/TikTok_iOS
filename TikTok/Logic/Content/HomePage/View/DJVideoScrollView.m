@@ -18,12 +18,12 @@
     [self setShowsVerticalScrollIndicator:NO];
     [self setShowsHorizontalScrollIndicator:NO];
     
-    self.videoItemsArray = [NSMutableArray arrayWithCapacity:3];
-    for (int i = 0; i < 3; i++) {
-        self.videoItemsArray[i] = [[DJVideoItem alloc] initWithFrame:CGRectMake(0, i * VIEW_HEIGHT(self), SCREEN_WIDTH, VIEW_HEIGHT(self))];
-        [self.videoItemsArray[i] loadVideoItem];
-        [self addSubview:self.videoItemsArray[i]];
-    }
+//    self.videoItemsViewArray = [NSMutableArray arrayWithCapacity:3];
+//    for (int i = 0; i < 3; i++) {
+//        self.videoItemsViewArray[i] = [[DJVideoItemView alloc] initWithFrame:CGRectMake(0, i * VIEW_HEIGHT(self), SCREEN_WIDTH, VIEW_HEIGHT(self))];
+//        [self.videoItemsViewArray[i] loadVideoItemView];
+//        [self addSubview:self.videoItemsViewArray[i]];
+//    }
 }
 
 

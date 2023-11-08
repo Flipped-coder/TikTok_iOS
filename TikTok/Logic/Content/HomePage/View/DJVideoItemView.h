@@ -1,16 +1,17 @@
 //
-//  DJVideoItem.h
+//  DJVideoItemView.h
 //  TikTok
 //
-//  Created by 邓杰 on 2023/9/22.
+//  Created by 邓杰 on 2023/9/26.
 //
 
 #import <UIKit/UIKit.h>
+#import "DJVideoPlayerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DJVideoItem : UIView
-@property (nonatomic, strong) UIView *videoPlayerView;
+@interface DJVideoItemView : UIView
+@property (nonatomic, strong) DJVideoPlayerView *videoPlayerView;
 
 @property (nonatomic, strong) UIButton *profileBtn;
 @property (nonatomic, strong) UIButton *attentionBtn;
@@ -30,8 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *describe;
 @property (nonatomic, strong) UIView *progressBar;
 
-- (void)loadVideoItem;
+@property (nonatomic, strong) id delegate;
 
+- (void)loadVideoItemView;
 @end
 
 NS_ASSUME_NONNULL_END
